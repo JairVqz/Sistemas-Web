@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.text{
+    padding: 0px 10px;
+}
+
+.btnNumeros{
+    margin: 5px 15px;
+    padding: 12px 80px;
+    text-align: center;
+    background-color: #008CBA;
+}
+
+.btnOperaciones{
+    margin: 5px 15px;
+    padding: 12px 80px;
+    text-align: center;
+    background-color: #e7e7e7; color: black;
+}
+
