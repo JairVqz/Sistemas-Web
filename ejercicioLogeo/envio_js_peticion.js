@@ -11,10 +11,9 @@ btnNoSubmitPost.addEventListener('click', function () {
     // invocación de la librería AXIOS
     axios.post('http://localhost:4567/saludar', params)
         .then(function (response) {
-            //console.log(response);
-            //console.log("verdad: " + response.data);
-            //alert(response.data)
-            window.location.replace("http://127.0.0.1:5500/tabla_datos.html")
+            console.log(response);
+            console.log("verdad: " + response.data);
+            alert(response.data)
         })
         .catch(function (error) {
             console.log("error: " + error);
