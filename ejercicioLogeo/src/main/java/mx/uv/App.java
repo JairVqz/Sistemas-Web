@@ -34,13 +34,11 @@ public class App {
             String respuesta;
             System.out.println(l + " " + p);
 
-            if (l.equals("root") && p.equals("123456"))
-            window.location.replace('http://127.0.0.1:5500/tabla_datos.html');    
-            respuesta = "Bienvenido usuario ";
+            if (l.equals("root") && p.equals("123456"))   
+            respuesta = "Bienvenido usuario root <a href='http://127.0.0.1:5500/tabla_datos.html'>Mostrar Datos</a>";
             else
-                respuesta = "Usuario equivocado ";
-                window.location.replace("/tabla_datos.html");
-            return respuesta + l + " <a href='http://127.0.0.1:5500/envio_formulario.html'>volver</a>";
+                respuesta = "Usuario equivocado <a href='http://127.0.0.1:5500/envio_js_registro.html'>Registrarme</a>";
+            return respuesta;
         });
 
     }

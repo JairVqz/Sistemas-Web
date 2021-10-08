@@ -4,13 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Formulario de registro</title>
+    	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="tabla_datos.js"></script>
 </head>
 <body>
-    <form action="http://localhost:4567/saludarRegistro" method="POST">
-        <input type="text" name="nombre" id="" placeholder="Ingresa tu usuario">
-        <input type="password" name="password" id="" placeholder="Escribe tu password">
-        <input type="submit" value="Enviar">
-    </form>
+
+    <div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<form action="http://localhost:4567/saludar" id="nuevo-usuario" method="POST">
+					<div class="form-group">
+						<label for="Nombre de Usuario">Usuario</label>
+						<input type="text" class="form-control" id="usuario" placeholder="Escribe tu usuario"/>
+					</div>
+					<div class="form-group">
+						<label for="Password">Password</label>
+						<input type="text" class="form-control" id="password" placeholder="Escribe tu password"/>
+					</div>
+					<input type="submit" value="Añadir Usuario"/>
+				</form>
+			</div>
+			<div class="col-sm-6">
+				<div id="tabla-usuarios"></div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Usuario</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+						<tbody id="usuarios-tabla">
+							
+						</tbody>
+					</table>
+					<button id="mostrar-tabla">Mostrar Tabla</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
