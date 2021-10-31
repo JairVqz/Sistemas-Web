@@ -17,7 +17,7 @@ public class App {
         get("/hello", (req, res) -> "Hello Heroku World");
 
 
-        get("/handleB",(req,res)->{
+        get("/",(req,res)->{
             Map<String,String> model = new HashMap<>();
             model.put("cartel","https://www.dodmagazine.es/wp-content/uploads/2018/01/la-forma-del-agua.jpg");
             model.put("titulo","LA FORMA DEL AGUA");
