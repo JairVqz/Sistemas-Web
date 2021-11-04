@@ -89,4 +89,75 @@ public class DAO {
         }
         return resultado;
     }
+
+    public String modificarUsuario(Usuario u) {
+        Connection conn = null;
+        PreparedStatement prestm = null;
+        String msj = "";
+
+        conn = conexion.getConnection();
+        try {
+            String sql = "UPDATE usuario SET email = ?, password = ? WHERE id = ?";
+            prestm = conn.prepareStatement(sql);
+            prestm.setString(1, u.getEmail());
+            prestm.setString(2, u.getPassword());
+            prestm.setString(3, u.getId());
+            if (prestm.executeUpdate() >0) 
+                msj = "Usuario modificado";
+            else
+                msj = "No se modificó el usuario";
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (prestm != null){
+                try {
+                    prestm.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return msj;
+    }
+
+    public String eliminarUsuario(Usuario u) {
+        Connection conn = null;
+        PreparedStatement prestm = null;
+        String msj = "";
+
+        conn = conexion.getConnection();
+        try {
+            String sql = "DELETE FROM usuario WHERE id = ?";
+            prestm = conn.prepareStatement(sql);
+            prestm.setString(1, u.getId());
+            if (prestm.executeUpdate() >0) 
+                msj = "Usuario eliminado";
+            else
+                msj = "No se eliminó el usuario";
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (prestm != null){
+                try {
+                    prestm.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return msj;
+    }
+
 }

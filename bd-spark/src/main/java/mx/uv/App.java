@@ -47,14 +47,14 @@ public class App
             // Insertamos un nuevo usuario
             String json = req.body();
             Usuario u = gson.fromJson(json, Usuario.class);
-            String id = UUID.randomUUID().toString();
-            u.setId(id);
+            //String id = UUID.randomUUID().toString();
+            //u.setId(id);
             //usuarios.put(id, u);
 
             DAO dao = new DAO();
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("status", dao.insertarUsuario(u));
-            respuesta.addProperty("id", id);
+            //respuesta.addProperty("id", id);
             return respuesta;
         });
         
@@ -62,6 +62,36 @@ public class App
             before((req2, res2) -> res.type("application/json"));
             DAO dao = new DAO();
             return gson.toJson(dao.listadoUsuario());
+        });
+
+        post("/editarUsuario", (req, res) -> {
+            // Editamos un usuario ya existente
+            String json = req.body();
+            Usuario u = gson.fromJson(json, Usuario.class);
+            //String id = UUID.randomUUID().toString();
+            //u.setId(id);
+            //usuarios.put(id, u);
+
+            DAO dao = new DAO();
+            JsonObject respuesta = new JsonObject();
+            respuesta.addProperty("status", dao.modificarUsuario(u));
+            //respuesta.addProperty("id", id);
+            return respuesta;
+        });
+
+        post("/eliminarUsuario", (req, res) -> {
+            // Editamos un usuario ya existente
+            String json = req.body();
+            Usuario u = gson.fromJson(json, Usuario.class);
+            //String id = UUID.randomUUID().toString();
+            //u.setId(id);
+            //usuarios.put(id, u);
+
+            DAO dao = new DAO();
+            JsonObject respuesta = new JsonObject();
+            respuesta.addProperty("status", dao.eliminarUsuario(u));
+            //respuesta.addProperty("id", id);
+            return respuesta;
         });
 
     }

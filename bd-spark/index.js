@@ -1,6 +1,7 @@
 var btnRegistrar = document.getElementById("btnRegistrar");
 btnRegistrar.addEventListener("click", () => {
     axios.post("http://localhost:4567/usuario", {
+        id: document.getElementById("id").value,
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     })
@@ -31,3 +32,33 @@ btnLista.addEventListener("click", function () {
     })
     .catch()
 })
+
+var btnEditar = document.getElementById("btnEditar");
+btnEditar.addEventListener("click", () => {
+    axios.post("http://localhost:4567/editarUsuario", {
+        id: document.getElementById("id").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+    })
+        .then(function (res) {
+            alert("Usuario:" + res.data.status);
+        })
+        .catch(function (error) {
+            console.log(error)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        })
+});
+
+var btnEliminar = document.getElementById("btnEliminar");
+btnEliminar.addEventListener("click", () => {
+    axios.post("http://localhost:4567/eliminarUsuario", {
+        id: document.getElementById("id").value,
+        //email: document.getElementById("email").value,
+        //password: document.getElementById("password").value
+    })
+        .then(function (res) {
+            alert("Usuario:" + res.data.status);
+        })
+        .catch(function (error) {
+            console.log(error)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        })
+});
