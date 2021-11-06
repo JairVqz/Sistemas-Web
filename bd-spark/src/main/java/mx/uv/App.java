@@ -2,8 +2,6 @@ package mx.uv;
 
 import static spark.Spark.*;
 
-import java.util.UUID;
-
 import com.google.gson.*;
 
 import mx.uv.db.DAO;
@@ -47,14 +45,10 @@ public class App
             // Insertamos un nuevo usuario
             String json = req.body();
             Usuario u = gson.fromJson(json, Usuario.class);
-            //String id = UUID.randomUUID().toString();
-            //u.setId(id);
-            //usuarios.put(id, u);
 
             DAO dao = new DAO();
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("status", dao.insertarUsuario(u));
-            //respuesta.addProperty("id", id);
             return respuesta;
         });
         
@@ -68,14 +62,10 @@ public class App
             // Editamos un usuario ya existente
             String json = req.body();
             Usuario u = gson.fromJson(json, Usuario.class);
-            //String id = UUID.randomUUID().toString();
-            //u.setId(id);
-            //usuarios.put(id, u);
-
+           
             DAO dao = new DAO();
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("status", dao.modificarUsuario(u));
-            //respuesta.addProperty("id", id);
             return respuesta;
         });
 
@@ -83,14 +73,10 @@ public class App
             // Editamos un usuario ya existente
             String json = req.body();
             Usuario u = gson.fromJson(json, Usuario.class);
-            //String id = UUID.randomUUID().toString();
-            //u.setId(id);
-            //usuarios.put(id, u);
 
             DAO dao = new DAO();
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("status", dao.eliminarUsuario(u));
-            //respuesta.addProperty("id", id);
             return respuesta;
         });
 
